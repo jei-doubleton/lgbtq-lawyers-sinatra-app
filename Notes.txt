@@ -1,0 +1,36 @@
+Overview
+- Users can login
+- Logged in user CRUD actions:
+   - create a new lawyer entry
+   - view list of all lawyers
+      - list of all lawyers should be filterable by:
+          - practice_areas
+          - free, reduced-cost, or private
+          - location?
+   - view list of lawyers they've created
+   - edit their own lawyer entries
+   - delete their own lawyer entries
+
+Models
+- users
+  has_many :lawyers
+    - username
+    - email
+    - password
+- lawyers:
+  belongs_to :user
+  has_many :lawyers_practice_areas
+  has_many :practice_areas, through: :lawyers_practice_areas
+    - name
+    - LGBTQ_friendly?
+    - phone_number
+    - address
+    - website
+    - free, reduced-cost, or private
+- practice_areas:
+  has_many :lawyer_practice_areas
+  has_many :lawyers, through: :lawyers_practice_areas
+    - name
+- lawyer_practice_areas:
+  belongs_to :lawyer
+  belongs_to :practice_area
