@@ -15,7 +15,7 @@ gem 'bcrypt'
 gem 'tux'
 gem 'rack_flash3'
 
-For tests:
+# For tests:
 group :test do
   gem 'rspec'
   gem 'capybara'
