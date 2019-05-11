@@ -1,12 +1,13 @@
 Overview
 - Users can login
-- Logged in user CRUD actions:
+- Logged in user's CRUD actions:
    - create a new lawyer entry
+      - on lawyer create page, should be able to select existing practice_area or create new one
    - view list of all lawyers
       - list of all lawyers should be filterable by:
+          - name
           - practice_areas
           - free, reduced-cost, or private
-          - location?
    - view list of lawyers they've created
    - edit their own lawyer entries
    - delete their own lawyer entries
@@ -34,3 +35,5 @@ Models
 - lawyer_practice_areas:
   belongs_to :lawyer
   belongs_to :practice_area
+    - lawyer_id
+    - practice_area_id
