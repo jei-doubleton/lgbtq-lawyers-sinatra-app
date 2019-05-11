@@ -22,12 +22,13 @@ Models
   belongs_to :user
   has_many :lawyers_practice_areas
   has_many :practice_areas, through: :lawyers_practice_areas
-    - name
-    - LGBTQ_friendly?
-    - phone_number
-    - address
+    - name*
+    - LGBTQ_friendly?* (yes, not verified)
+    - phone_number*
+    - address (add later -- break into address line 1, address line 2, city, state (MC), zip)
     - website
-    - free, reduced-cost, or private
+    - cost (free, reduced-price, private)
+    - user_id
 - practice_areas:
   has_many :lawyer_practice_areas
   has_many :lawyers, through: :lawyers_practice_areas
