@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190511185300) do
+ActiveRecord::Schema.define(version: 20190514021744) do
 
   create_table "lawyer_practice_areas", force: :cascade do |t|
     t.integer "lawyer_id"
-    t.integer "pracitce_area_id"
+    t.integer "practice_area_id"
   end
 
   create_table "lawyers", force: :cascade do |t|

@@ -8,6 +8,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    "hello"
+    erb :index
   end
 end
