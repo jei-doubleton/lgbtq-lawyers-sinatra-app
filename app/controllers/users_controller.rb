@@ -1,7 +1,23 @@
 class UsersController < ApplicationController
 
-  
+  get '/signup' do
+    if logged_in?
+      redirect to "/lawyers"
+    else
+      erb :"users/create_user"
+    end
+  end
 
+  post '/signup' do
+    if params[:user][:email] == "" || params[:user][:username] == "" || params[:user][:password] == ""
+      redirect "/signup"
+      # flash message
+    else
+      @user = User.create(params[:user])
+      session[:user_id] = @user.id
+      erb :"users/show"
+    end
+  end
 
   helpers do
     def logged_in?

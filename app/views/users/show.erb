@@ -1,0 +1,8 @@
+<h3><a href="/lawyers/create">Add a lawyer to the referral list</a></h3>
+  <% @user.lawyers.each do |lawyer| %>
+    <p><strong><a href="/lawyers/<%= lawyer.slug %>"><%= lawyer.name %></a></strong></p>
+    <p><a href="/lawyers/<%= lawyer.slug %>/edit"></a>Edit this lawyer</p>
+  <% end %>
+<% else %>
+  <strong>You haven't added any lawyers yet.</strong>
+<% end %>
