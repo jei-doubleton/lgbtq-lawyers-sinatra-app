@@ -3,6 +3,6 @@ class User < ActiveRecord::Base
   has_many :lawyers
 
   def slug
-    self.downcase.gsub(" ", "-")
+    self.username.downcase.gsub(" ", "-")
   end
 end
