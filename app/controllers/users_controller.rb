@@ -44,8 +44,13 @@ class UsersController < ApplicationController
   end
 
   get "/users/:slug" do
-    @user = User.find {|user| user.slug == params[:slug]}
-    erb :"users/show"
+    if logged_in?
+      @user = User.find {|user| user.slug == params[:slug]}
+      erb :"users/show"
+    else
+      flash[:message] = "You must log in to view that page."
+      redirect '/login'
+    end
   end
 
   helpers do
