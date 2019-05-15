@@ -43,6 +43,16 @@ class UsersController < ApplicationController
     end
   end
 
+  get '/logout' do
+    if logged_in?
+      session.destroy
+      redirect '/'
+    else
+      flash[:message] = "You weren't logged in..."
+      redirect '/login'
+    end
+  end
+
   get "/users/:slug" do
     if logged_in?
       @user = User.find {|user| user.slug == params[:slug]}
