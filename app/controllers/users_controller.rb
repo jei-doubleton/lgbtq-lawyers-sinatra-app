@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     else
       @user = User.create(params[:user])
       session[:user_id] = @user.id
-      erb :"users/show"
+      redirect "/users/#{@user.slug}"
     end
   end
 
@@ -33,14 +33,19 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-    @user = User.all.find_by(username: params[:username])
-    binding.pry
-    if @user && @user.authenticate(params[:password])
+    @user = User.all.find_by(username: params[:user][:username])
+
+    if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
+      redirect "/users/#{@user.slug}"
     else
       flash[:message] = "Incorrect login. Please try again."
       redirect '/login'
     end
+  end
+
+  get "/users/:slug" do
+    erb :show
   end
 
   helpers do
