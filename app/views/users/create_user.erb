@@ -1,10 +1,13 @@
-<h3>Sign up for an account to view lawyers.</h3>
+<% if flash.has?(:message) %>
+  <h2 style="color:red;"><%= flash[:message] %></h2>
+<% end %>
+<h3>Sign up for an account:</h3>
 <form action="/signup" method="post">
-  <label for="username">Username: </label>
-  <input type="text" name="user[username]" id="username">
-  <label for="email">Email: </label>
-  <input type="text" name="user[email]" id="email">
-  <label for="password">Password: </label>
-  <input type="password" name="user[password]" id="password">
+  <p><label for="username">Username: </label>
+  <input type="text" name="user[username]" id="username"></p>
+  <p><label for="email">Email: </label>
+  <input type="text" name="user[email]" id="email"></p>
+  <p><label for="password">Password: </label>
+  <input type="password" name="user[password]" id="password"></p>
   <input type="submit" value="Sign Up">
 </form>

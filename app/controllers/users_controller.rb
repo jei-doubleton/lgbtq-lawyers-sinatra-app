@@ -1,4 +1,7 @@
+require 'rack-flash'
+
 class UsersController < ApplicationController
+  use Rack::Flash
 
   get '/signup' do
     if logged_in?
@@ -10,8 +13,8 @@ class UsersController < ApplicationController
 
   post '/signup' do
     if params[:user][:email] == "" || params[:user][:username] == "" || params[:user][:password] == ""
+      flash[:message] = "You must fill in all fields!"
       redirect "/signup"
-      # flash message
     else
       @user = User.create(params[:user])
       session[:user_id] = @user.id
