@@ -2,7 +2,7 @@
 <form action="/lawyers" method="post">
   <p><label for="name">Laywer's Name:</label>
   <input type="text" name="lawyer[name]" id="name" required></p>
-  <p><label for="LGBTQ_friendly?">Is the lawyer LGBTQ friendly?</label>
+  <p><label for="LGBTQ_friendly?">Is the lawyer LGBTQ friendly?</label><br>
   <input type="radio" name="lawyer[LGBTQ_friendly?]" value="Yes" required>Yes<br>
   <input type="radio" name="lawyer[LGBTQ_friendly?]" value="No" required>No<br>
   <input type="radio" name="lawyer[LGBTQ_friendly?]" value="Not sure" required>Not sure<br></p>
@@ -10,13 +10,13 @@
   <input type="text" name="lawyer[phone_number]" value="111-111-1111" id="phone_number"></p>
   <p><label for="website">Website</label>
   <input type="text" name="lawyer[website]" id="website"></p>
-  <p><label for="cost">Cost</label>
+  <p><label for="cost">Cost</label><br>
   <input type="radio" name="lawyer[cost]" value="free">Free<br>
   <input type="radio" name="lawyer[cost]" value="reduced-fee">Reduced-fee (sliding scale, unbundled services, etc.)<br>
   <input type="radio" name="lawyer[cost]" value="private">Private attorney with no discounts<br></p>
   <p><label for="practice_areas">What practice areas does the lawyer serve?</label>
   <% PracticeArea.all.each do |area| %>
-    <input type="checkbox" name="practice_area[name]" value="<%= area.name %>">
+    <br><input type="checkbox" name="practice_area[name]" value="<%= area.name %>"> <%= area.name %>
   <% end %>
   <p><input type="submit" value="Add lawyer"></p>
 </form>
