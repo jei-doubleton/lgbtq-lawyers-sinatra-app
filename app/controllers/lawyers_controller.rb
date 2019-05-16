@@ -12,9 +12,10 @@ class LawyersController < ApplicationController
   end
 
   post '/lawyers' do
-    binding.pry
     lawyer = Lawyer.create(params[:lawyer])
     current_user.lawyers << lawyer
-    
+    params[:practice_areas].each do |id|
+      lawyer.practice_areas << PracticeArea.find(id)
+    end
   end
 end
