@@ -16,7 +16,7 @@
   <input type="radio" name="lawyer[cost]" value="private">Private attorney with no discounts<br></p>
   <p><label for="practice_areas">What practice areas does the lawyer serve?</label>
   <% PracticeArea.all.each do |area| %>
-    <br><input type="checkbox" name="practice_area[name]" value="<%= area.name %>"> <%= area.name %>
+    <br><input type="checkbox" name="practice_area[name][]" value="<%= area.name %>"> <%= area.name %>
   <% end %>
   <p><input type="submit" value="Add lawyer"></p>
 </form>

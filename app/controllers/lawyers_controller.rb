@@ -12,6 +12,9 @@ class LawyersController < ApplicationController
   end
 
   post '/lawyers' do
-    Lawyer.create()
+    binding.pry
+    lawyer = Lawyer.create(params[:lawyer])
+    current_user.lawyers << lawyer
+    
   end
 end
