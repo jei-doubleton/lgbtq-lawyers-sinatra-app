@@ -1,9 +1,9 @@
 User.create(username: "jsingleton", email: "jsingleton@test.com", password: "123pass")
 User.create(username: "egnelson", email: "egnelson@test.com", password: "pass123")
 
-Lawyer.create(name: "Mickey", LGBTQ_friendly?: "yes", phone_number: "111-111-1111", website: "www.catzcanhelp.com", cost: "reduced-fee")
-Lawyer.create(name: "Roger Barton", LGBTQ_friendly?: "not verified", phone_number: "222-222-2222", website: "www.catzrtuff.com", cost: "private")
-Lawyer.create(name: "Loverboi", LGBTQ_friendly?: "yes", phone_number: "333-333-3333", website: "www.purrs.com", cost: "free")
+Lawyer.create(name: "Mickey", LGBTQ_friendly?: "yes", phone_number: "111-111-1111", website: "www.catzcanhelp.com", cost: "reduced-fee", user_id: 1)
+Lawyer.create(name: "Roger Barton", LGBTQ_friendly?: "not verified", phone_number: "222-222-2222", website: "www.catzrtuff.com", cost: "private", user_id: 1)
+Lawyer.create(name: "Loverboi", LGBTQ_friendly?: "yes", phone_number: "333-333-3333", website: "www.purrs.com", cost: "free", user_id: 2)
 
 PracticeArea.create(name: "Family Law")
 PracticeArea.create(name: "Employment Law")
