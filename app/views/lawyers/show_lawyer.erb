@@ -3,7 +3,11 @@
 <p><strong>Phone Number:</strong> <%= @lawyer.phone_number != nil ? @lawyer.phone_number : "none provided"%></p>
 <p><strong>Website:</strong> <% if @lawyer.website != nil %><a href="<%= @lawyer.website %>" target="_blank"><%= @lawyer.website %></a><% else %>none provided<% end %></p>
 <p><strong>Cost:</strong> <%= @lawyer.cost != nil ? @lawyer.cost : "not provided"%></p></a>
-<p><strong>Practice Areas:</strong></p>
-<ul><% @lawyer.practice_areas.each do |area| %>
-  <li><%= area.name %></li>
-<% end %></ul>
+<p><strong>Practice Areas:</strong>
+<% if !@lawyer.practice_areas.empty? %>
+  <ul><% @lawyer.practice_areas.each do |area| %>
+    <li><%= area.name %></li>
+  <% end %></ul>
+<% else %>
+  No practice areas added yet!</p>
+<% end %>
