@@ -1,0 +1,5 @@
+<h2><%= @lawyer.name %></h2>
+<p>LGBTQ-friendly? <%= @lawyer.LGBTQ_friendly? %></p>
+<p>Phone Number: <%= @lawyer.phone_number != nil ? @lawyer.phone_number : "none provided"%></p>
+<p>Website: <%= @lawyer.website != nil ? @lawyer.website : "none provided"%></p>
+<p>Cost: <%= @lawyer.cost != nil ? @lawyer.cost : "not provided"%></p>

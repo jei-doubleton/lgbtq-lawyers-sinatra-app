@@ -34,4 +34,9 @@ class LawyersController < ApplicationController
       end
     end
   end
+
+  get '/lawyers/:slug' do
+    @lawyer = Lawyer.find {|lawyer| lawyer.slug == params[:slug]}
+    erb :"lawyers/show_lawyer"
+  end
 end
