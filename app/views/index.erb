@@ -1,7 +1,7 @@
 <% if logged_in?%>
   <p><a href="/lawyers">Search Lawyers</a></p>
   <p><a href="/lawyers/new">Add a New Lawyer</a></p>
-  <p><a href="/users/:slug">See Lawyers You Added</a></p>
+  <p><a href="/users/<%= current_user.slug %>">See Lawyers You Added</a></p>
 <% else %>
   <h3><a href="/signup">Signup to Search and Add Lawyers</a></h3>
 <% end %>
