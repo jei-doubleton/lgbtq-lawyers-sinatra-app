@@ -28,6 +28,7 @@ class LawyersController < ApplicationController
       end
 
       if params[:practice_area][:name]
+        binding.pry
         practice_area = PracticeArea.create(name: params[:practice_area][:name])
         lawyer.practice_areas << practice_area
         lawyer.save
