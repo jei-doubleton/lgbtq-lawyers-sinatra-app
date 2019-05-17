@@ -15,11 +15,11 @@
   <input type="radio" name="lawyer[cost]" value="reduced-fee">Reduced-fee (sliding scale, unbundled services, etc.)<br>
   <input type="radio" name="lawyer[cost]" value="private">Private attorney with no discounts<br></p>
   <p><label for="practice_areas">What practice areas does the lawyer serve?</label><br>
-    <em>Check as many as apply or add a new practice area below</em>
+    <em>Check as many as apply and/or add a new practice area below</em>
   <% PracticeArea.all.each do |area| %>
     <br><input type="checkbox" name="practice_areas[]" value="<%= area.id %>"> <%= area.name %>
   <% end %>
   <p><label for="new_practice_area">New practice area:</label>
-  <input type="text" name="practice_areas[name]" id="new_practice_area"></p>
+  <input type="text" name="practice_area[name]" id="new_practice_area"></p>
   <p><input type="submit" value="Add lawyer"></p>
 </form>
