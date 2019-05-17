@@ -8,6 +8,13 @@
   <ul><% @lawyer.practice_areas.each do |area| %>
     <li><%= area.name %></li>
   <% end %></ul>
+  <% binding.pry %>
 <% else %>
   No practice areas added yet!</p>
 <% end %>
+
+<div>
+  <% if @lawyer.user == current_user %>
+    <button type="button">Edit this lawyer</button>
+  <% end %>
+</div>
