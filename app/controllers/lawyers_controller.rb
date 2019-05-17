@@ -27,12 +27,12 @@ class LawyersController < ApplicationController
         end
       end
 
-      if params[:practice_area][:name]
-        binding.pry
+      if params[:practice_area][:name] != ""
         practice_area = PracticeArea.create(name: params[:practice_area][:name])
         lawyer.practice_areas << practice_area
         lawyer.save
       end
+      redirect "/lawyers/#{lawyer.slug}"
     end
   end
 
