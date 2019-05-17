@@ -12,20 +12,26 @@ class LawyersController < ApplicationController
   end
 
   post '/lawyers' do
-    lawyer = Lawyer.create(params[:lawyer])
-    current_user.lawyers << lawyer
-    binding.pry
+    lawyer = Lawyer.new(params[:lawyer])
 
-    if params[:practice_areas]
-      params[:practice_areas].each do |id|
-        lawyer.practice_areas << PracticeArea.find(id)
-      end
-    end
-
-    if params[:practice_area][:name]
-      practice_area = PracticeArea.create(name: params[:practice_area][:name])
-      lawyer.practice_areas << practice_area
+    if Lawyer.all.find {|name| name.slug == lawyer.slug}
+      flash[:message] = "The lawyer '#{params[:lawyer][:name]}' has already been added."
+      redirect "/lawyers/new"
+    else
       lawyer.save
+      current_user.lawyers << lawyer
+
+      if params[:practice_areas]
+        params[:practice_areas].each do |id|
+          lawyer.practice_areas << PracticeArea.find(id)
+        end
+      end
+
+      if params[:practice_area][:name]
+        practice_area = PracticeArea.create(name: params[:practice_area][:name])
+        lawyer.practice_areas << practice_area
+        lawyer.save
+      end
     end
   end
 end

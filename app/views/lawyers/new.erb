@@ -1,6 +1,9 @@
 <h2>Add a new lawyer:</h2>
+<% if flash.has?(:message) %>
+  <h3 style="color:red;"><%= flash[:message] %></h3>
+<% end %>
 <form action="/lawyers" method="post">
-  <p><label for="name">Laywer's Name:</label>
+  <p><label for="name">Lawyer's Name:</label>
   <input type="text" name="lawyer[name]" id="name" required></p>
   <p><label for="LGBTQ_friendly?">Is the lawyer LGBTQ friendly?</label><br>
   <input type="radio" name="lawyer[LGBTQ_friendly?]" value="Yes" required>Yes<br>
