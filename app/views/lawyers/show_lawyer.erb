@@ -1,20 +1,19 @@
 <h2><%= @lawyer.name %></h2>
 <p><strong>LGBTQ-friendly?</strong> <%= @lawyer.LGBTQ_friendly? %></p>
 <p><strong>Phone Number:</strong> <%= @lawyer.phone_number != nil ? @lawyer.phone_number : "none provided"%></p>
-<p><strong>Website:</strong> <% if @lawyer.website != nil %><a href="<%= @lawyer.website %>" target="_blank"><%= @lawyer.website %></a><% else %>none provided<% end %></p>
+<p><strong>Website:</strong> <% if @lawyer.website != "" %><a href="<%= @lawyer.website %>" target="_blank"><%= @lawyer.website %></a><% else %>none provided<% end %></p>
 <p><strong>Cost:</strong> <%= @lawyer.cost != nil ? @lawyer.cost : "not provided"%></p></a>
 <p><strong>Practice Areas:</strong>
 <% if !@lawyer.practice_areas.empty? %>
   <ul><% @lawyer.practice_areas.each do |area| %>
     <li><%= area.name %></li>
   <% end %></ul>
-  <% binding.pry %>
 <% else %>
   No practice areas added yet!</p>
 <% end %>
 
 <div>
   <% if @lawyer.user == current_user %>
-    <button type="button">Edit this lawyer</button>
+    <a href="/lawyers/<%= @lawyer.slug %>/edit"><button type="button">Edit this lawyer</button></a>
   <% end %>
 </div>
