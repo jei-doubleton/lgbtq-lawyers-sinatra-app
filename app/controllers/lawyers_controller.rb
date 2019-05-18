@@ -40,4 +40,14 @@ class LawyersController < ApplicationController
     @lawyer = Lawyer.find {|lawyer| lawyer.slug == params[:slug]}
     erb :"lawyers/show_lawyer"
   end
+
+  get '/lawyers/:slug/edit' do
+    @lawyer = Lawyer.find {|lawyer| lawyer.slug == params[:slug]}
+    erb :"lawyers/edit_lawyer"
+  end
+
+  patch '/lawyers/:slug' do
+    @lawyer = Lawyer.find {|lawyer| lawyer.slug == params[:slug]}
+    @lawyer.update(params[:lawyer])
+  end
 end
