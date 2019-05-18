@@ -61,6 +61,8 @@ class LawyersController < ApplicationController
     @lawyer = Lawyer.find {|lawyer| lawyer.slug == params[:slug]}
     @lawyer.update(params[:lawyer])
 
+    @lawyer.practice_areas.clear
+
     if params[:practice_areas]
       params[:practice_areas].each do |id|
         @lawyer.practice_areas << PracticeArea.find(id)
