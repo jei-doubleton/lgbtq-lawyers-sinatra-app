@@ -4,8 +4,10 @@
 <% if flash.has?(:message) %>
   <h3 style="color:red;"><%= flash[:message] %></h3>
 <% end %>
-<% Lawyer.all.each do |lawyer| %>
-  <h3><%= lawyer.name %></h3>
+
+<% sorted_lawyers = Lawyer.all.sort {|a, b| a.name <=> b.name} %>
+<% sorted_lawyers.each.with_index(1) do |lawyer, i| %>
+  <h3><%= i %>. <%= lawyer.name %></h3>
   <div>
     <% if lawyer.user == current_user %>
       <a href="/lawyers/<%= lawyer.slug %>/edit"><button type="button">Edit</button></a>
