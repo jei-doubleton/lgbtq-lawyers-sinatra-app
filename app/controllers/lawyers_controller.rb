@@ -24,6 +24,7 @@ class LawyersController < ApplicationController
       if params[:practice_areas]
         params[:practice_areas].each do |id|
           lawyer.practice_areas << PracticeArea.find(id)
+          lawyer.save
         end
       end
 
@@ -48,6 +49,20 @@ class LawyersController < ApplicationController
 
   patch '/lawyers/:slug' do
     @lawyer = Lawyer.find {|lawyer| lawyer.slug == params[:slug]}
+    binding.pry
     @lawyer.update(params[:lawyer])
+
+    if params[:practice_areas]
+      params[:practice_areas].each do |id|
+        @lawyer.practice_areas << PracticeArea.find(id)
+        @lawyer.save
+      end
+    end
+
+    if params[:practice_area][:name] != ""
+      practice_area = PracticeArea.create(name: params[:practice_area][:name])
+      @lawyer.practice_areas << practice_area
+      @lawyer.save
+    end
   end
 end
