@@ -1,6 +1,9 @@
 <h2>LGBTQ Lawyers List</h2>
 <em>Looking for a legal aid or bar association referral? Head over to the <a href="https://www.lawhelpmn.org/providers-and-clinics" target="_blank">LawHelpMN.org Directory</a></em>
 <hr>
+<% if flash.has?(:message) %>
+  <h3 style="color:red;"><%= flash[:message] %></h3>
+<% end %>
 <% Lawyer.all.each do |lawyer| %>
   <h3><%= lawyer.name %></h3>
   <div>
