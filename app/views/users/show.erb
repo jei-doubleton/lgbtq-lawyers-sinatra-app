@@ -1,7 +1,14 @@
+<h2>Welcome, <%= @user.username %>!</h2>
+<h3>Here are the lawyers you've added:</h3>
 <% if !@user.lawyers.empty? %>
   <% @user.lawyers.each do |lawyer| %>
     <p><strong><a href="/lawyers/<%= lawyer.slug %>"><%= lawyer.name %></a></strong></p>
-    <p><a href="/lawyers/<%= lawyer.slug %>/edit"></a>Edit this lawyer</p>
+    <div><a href="/lawyers/<%= lawyer.slug %>/edit"><button>Edit</button></a></div>
+    <div><form action="/lawyers/<%= lawyer.slug %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete">
+    </form></div>
+    <hr>
   <% end %>
 <% else %>
   <br>
