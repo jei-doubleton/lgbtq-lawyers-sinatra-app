@@ -83,4 +83,15 @@ class LawyersController < ApplicationController
 
     redirect "/lawyers/#{@lawyer.slug}"
   end
+
+  delete '/lawyers/:slug' do
+    @lawyer = Lawyer.find {|lawyer| lawyer.slug == params[:slug]}
+    if !current_user.lawyers.include?(@lawyer)
+      flash[:message] = "Sorry, you do not have authorization to delete this lawyer entry."
+      redirect "/lawyers"
+    else
+      @lawyer.delete
+      redirect "/lawyers"
+    end
+  end
 end
