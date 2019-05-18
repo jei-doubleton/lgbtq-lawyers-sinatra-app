@@ -44,12 +44,16 @@ class LawyersController < ApplicationController
 
   get '/lawyers/:slug/edit' do
     @lawyer = Lawyer.find {|lawyer| lawyer.slug == params[:slug]}
-    erb :"lawyers/edit_lawyer"
+
+    if !current_user.lawyers.include?(@lawyer)
+      flash[:message] = "Sorry, you do not have authorization to edit this lawyer entry."
+    else
+      erb :"lawyers/edit_lawyer"
+    end
   end
 
   patch '/lawyers/:slug' do
     @lawyer = Lawyer.find {|lawyer| lawyer.slug == params[:slug]}
-    binding.pry
     @lawyer.update(params[:lawyer])
 
     if params[:practice_areas]
@@ -60,9 +64,16 @@ class LawyersController < ApplicationController
     end
 
     if params[:practice_area][:name] != ""
-      practice_area = PracticeArea.create(name: params[:practice_area][:name])
-      @lawyer.practice_areas << practice_area
-      @lawyer.save
+      if PracticeArea.all.find {|area| area.name.downcase == params[:practice_area][:name].downcase}
+        flash[:message] = "The practice area '#{params[:practice_area][:name]}' has already been added."
+        redirect "/lawyers/#{@lawyer.slug}/edit"
+      else
+        practice_area = PracticeArea.create(name: params[:practice_area][:name])
+        @lawyer.practice_areas << practice_area
+        @lawyer.save
+      end
     end
+
+    redirect "/lawyers/#{@lawyer.slug}"
   end
 end
