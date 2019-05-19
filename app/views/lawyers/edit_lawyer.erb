@@ -1,4 +1,4 @@
-<h2>Add a new lawyer:</h2>
+<h2>Edit <%= @lawyer.name %>:</h2>
 <% if flash.has?(:message) %>
   <h3 style="color:red;"><%= flash[:message] %></h3>
 <% end %>
@@ -20,8 +20,9 @@
   <input type="radio" name="lawyer[cost]" value="private" <% if @lawyer.cost == "private" %>checked<% end %>>Private attorney with no discounts<br></p>
   <p><label for="practice_areas">What practice areas does the lawyer serve?</label><br>
     <em>Check as many as apply and/or add a new practice area below</em>
-  <% PracticeArea.all.each do |area| %>
-    <br><input type="checkbox" name="practice_areas[]" value="<%= area.id %>" <% if @lawyer.practice_areas.include?(area) %>checked<% end %>> <%= area.name %>
+  <% sorted_practice_areas = PracticeArea.all.sort {|a, b| a.name <=> b.name} %>
+  <% sorted_practice_areas.each do |area| %>
+    <br><input type="checkbox" name="practice_areas[]" value="<%= area.id %>" <% if @lawyer.practice_areas.include?(area) %>checked<% end %>> <%= area.name.capitalize %>
   <% end %>
   <p><label for="new_practice_area">New practice area:</label>
   <input type="text" name="practice_area[name]" id="new_practice_area"></p>
