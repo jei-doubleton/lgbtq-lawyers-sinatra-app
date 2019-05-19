@@ -1,34 +1,14 @@
-# Lgbtq::Lawyers::Sinatra::App
+# LGBTQ Lawyers Sinatra App
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/lgbtq/lawyers/sinatra/app`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This Sinatara app allows logged-in users to add lawyer information and indicate whether the lawyer is LGBTQ-friendly. Logged-in users can view all lawyers added to the database. Intended for use in conjunction with making LGBTQ-appropriate legal referrals.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'lgbtq-lawyers-sinatra-app'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install lgbtq-lawyers-sinatra-app
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To use this app
+ 1. clone the repo
+ 2. run `bundle install`
+ 3. run `rake db:migrate`
+ 4. run `shotgun`
 
 ## Contributing
 
@@ -40,4 +20,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Lgbtq::Lawyers::Sinatra::App project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/'jsingleton'/lgbtq-lawyers-sinatra-app/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the LGBTQ Lawyers Sinatra App project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/'jsingleton'/lgbtq-lawyers-sinatra-app/blob/master/CODE_OF_CONDUCT.md).
