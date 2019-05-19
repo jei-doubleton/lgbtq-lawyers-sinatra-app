@@ -8,7 +8,7 @@
     <header>
       <h1>LGBTQ Lawyers</h1>
       <hr>
-      <h3>|    <a href="/">Home</a>    |    <a href="/lawyers">View Lawyers</a>    |    <a href="https://www.lawhelpmn.org" target="_blank">LawHelpMN</a>    |    <% if logged_in? %>    <a href="/users/<%= current_user.slug %>">My Profile</a>    |    <a href="/logout">Logout</a><% else %><a href="/login">Login</a>    |    <a href="/signup">Sign Up</a><% end %>    |</h3>
+      <h3>|    <a href="/">Home</a>    |    <a href="/lawyers">View Lawyers</a>    |    <a href="/lawyers/new">Add a Lawyer</a>    |    <a href="https://www.lawhelpmn.org" target="_blank">LawHelpMN</a>    |    <% if logged_in? %>    <a href="/users/<%= current_user.slug %>">My Profile</a>    |    <a href="/logout">Logout</a><% else %><a href="/login">Login</a>    |    <a href="/signup">Sign Up</a><% end %>    |</h3>
       <hr>
     </header>
     <%= yield %>
