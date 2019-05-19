@@ -47,7 +47,7 @@ class LawyersController < ApplicationController
       erb :"/lawyers/lawyers"
     else
       flash[:message] = "You must be logged in to see the View Lawyers page"
-      redirect "/"
+      redirect "/login"
     end
   end
 
@@ -56,8 +56,8 @@ class LawyersController < ApplicationController
       @lawyer = Lawyer.find {|lawyer| lawyer.slug == params[:slug]}
       erb :"lawyers/show_lawyer"
     else
-      flash[:message] = "You must be logged in to see the lawyer pages"
-      redirect "/"
+      flash[:message] = "You must be logged in to view that page"
+      redirect "/login"
     end
   end
 
