@@ -18,13 +18,29 @@ Specs:
     - a LawyerPracticeArea belongs_to Lawyer
     - a LawyerPracticeArea belongs_to PracticeArea
 - [x] Include user accounts with unique login attribute (username or email)
-    - a User signs up with email and username; both are validated for uniqueness, with accompanying flash messages for duplicates
-- [ ] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
-    - a Lawyer can be created
-- [ ] Ensure that users can't modify content created by other users
-- [ ] Include user input validations
+    - a User signs up with email, username, and password
+    - email and username are validated for uniqueness, with accompanying flash messages for duplicates
+- [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
+    - a Lawyer can be created at /lawyers/new
+    - a Lawyer can be read at /lawyers and at /lawyers/:slug
+    - a Lawyer can be updated at /lawyers/:slug/edit
+    - a lawyer can be updated via delete form (button) shown on /lawyers, /lawyers/:slug and users/:slug (assuming lawyer belongs to current_user)
+- [x] Ensure that users can't modify content created by other users
+    - the app validates that the lawyer belongs to the user in two places (flash message shows error):
+        1) in views, Edit and Delete buttons only appear if the lawyer belongs to the current_user
+        2) in lawyer controller, a lawyer cannot be updated/deleted unless the lawyer belongs to current_user
+- [x] Include user input validations
 - [x] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
-    - duplicate username, email, or lawyer names & incorrect login display flash messages about problem
+    - in user signup (/signup): empty fields and duplicate username or email display flash messages
+    - in user login (/login): incorrect login displays flash message
+    - in user show page (/users/:slug): flash message if someone other than current_user tries to view page
+    - in add a lawyer page (/lawyers/new): flash message if not signed in
+    - in add a lawyer page (/lawyers/new): flash message if duplicate lawyer name or practice area
+    - in view all lawyers page (/lawyers): flash message if user not logged in
+    - in view a lawyer page (/lawyers/:slug): flash message if user not logged in
+    - in lawyer edit page (/lawyers/:slug/edit): flash message if lawyer not owned by current_user
+    - in lawyer edit page (/lawyers/:slug/edit): flash message if practice area already exists
+    - in lawyer delete page: flash message if lawyer not owned by current_user
 - [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm

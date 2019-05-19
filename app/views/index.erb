@@ -1,3 +1,6 @@
+<% if flash.has?(:message) %>
+  <h3 style="color:red;"><%= flash[:message] %></h3>
+<% end %>
 <% if logged_in?%>
   <p><a href="/lawyers">Search Lawyers</a></p>
   <p><a href="/lawyers/new">Add a New Lawyer</a></p>

@@ -43,12 +43,22 @@ class LawyersController < ApplicationController
   end
 
   get '/lawyers' do
-    erb :"/lawyers/lawyers"
+    if logged_in?
+      erb :"/lawyers/lawyers"
+    else
+      flash[:message] = "You must be logged in to see the View Lawyers page"
+      redirect "/"
+    end
   end
 
   get '/lawyers/:slug' do
-    @lawyer = Lawyer.find {|lawyer| lawyer.slug == params[:slug]}
-    erb :"lawyers/show_lawyer"
+    if logged_in?
+      @lawyer = Lawyer.find {|lawyer| lawyer.slug == params[:slug]}
+      erb :"lawyers/show_lawyer"
+    else
+      flash[:message] = "You must be logged in to see the lawyer pages"
+      redirect "/"
+    end
   end
 
   get '/lawyers/:slug/edit' do
