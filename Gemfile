@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Specify your gem's dependencies in lgbtq-lawyers-sinatra-app.gemspec
-gem 'activerecord', '4.2.5', :require => "active_record"
+gem 'activerecord', '4.2.7.1', :require => "active_record"
 gem 'pry'
 gem 'rake'
 gem 'require_all'
