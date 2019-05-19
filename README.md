@@ -4,11 +4,11 @@ This Sinatara app allows logged-in users to add lawyer information and indicate 
 
 ## Installation
 
-To use this app
+Get this app running in 4 easy steps:
  1. clone the repo
  2. run `bundle install`
  3. run `rake db:migrate`
- 4. run `shotgun`
+ 5. run `shotgun` to run a local server
 
 ## Contributing
 
