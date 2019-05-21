@@ -3,6 +3,48 @@ body{
   padding: 5;
 }
 
+.wrapper {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.content {
+  position: absolute;
+  top: 175px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.lawyer-block {
+  border: 1px solid gray;
+  margin-bottom: 10px;
+  padding-bottom: 50px;
+  padding-left: 15px;
+  position: block;
+  clear: both;
+  background-color: #dee7f4;
+  width: 400px;
+  height: auto;
+}
+
+.lawyer-block .title {
+  font-size: 1.5em;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+}
+
+.clear {
+  clear:both;
+}
+
+/* ---- Header ---- */
+
 header {
   padding: 5;
   font-family: 'Baloo Bhai', cursive;
@@ -18,19 +60,14 @@ header h1 {
   left: 225px;
 }
 
-.wrapper {
-  width: 960px;
-  margin: 0 auto;
+.header-image {
+  max-width: 100%;
+  height: 100px;
+  position: absolute;
+  top: 10px;
 }
 
-.clearfix:after {
-  content: ".";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  height: 0;
-  line-height: 0;
-}
+/* ---- Navbar ---- */
 
 #navbar {
   font-family: 'Source Sans Pro', sans-serif;
@@ -82,21 +119,21 @@ header h1 {
   display: none;
 }
 
-.header-image {
-  max-width: 100%;
-  height: 100px;
-  position: absolute;
-  top: 10px;
+/* ---- FORMS ---- */
+
+form label {
+  font-size: 1.2em;
 }
 
-.clear {
-  clear:both;
+form .help-text {
+  font-style: italic;
+  font-size: .9em;
 }
 
-.content {
-  position: absolute;
-  top: 175px;
-  font-family: 'Poppins', sans-serif;
+.not-button {
+  padding: 5px;
+  padding-left: 15px;
+  background-color: #f2f6fc;
 }
 
 .button {
@@ -130,35 +167,4 @@ header h1 {
 
 .lawyer-button:hover {
   background-color: #3e82ef; /* Darker Blue */
-}
-
-.lawyer-block {
-  border: 1px solid gray;
-  margin-bottom: 10px;
-  padding-bottom: 50px;
-  padding-left: 15px;
-  position: block;
-  clear: both;
-  background-color: #dee7f4;
-  width: 400px;
-  height: auto;
-}
-
-.lawyer-block .title {
-  font-size: 1.5em;
-}
-
-.not-button {
-  padding: 5px;
-  padding-left: 15px;
-  background-color: #f2f6fc;
-}
-
-form label {
-  font-size: 1.2em;
-}
-
-form .help-text {
-  font-style: italic;
-  font-size: .9em;
 }
