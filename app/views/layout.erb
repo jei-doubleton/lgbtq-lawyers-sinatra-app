@@ -3,14 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>LGBTQ Lawyer Referrals</title>
+    <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Source+Sans+Pro&display=swap">
   </head>
   <body>
-    <header>
+    <header class="wrapper">
+      <img class="header-image" src="/images/LGBTQ_Symbols.png" alt="LGBTQ Symbols">
       <h1>LGBTQ Lawyers</h1>
-      <hr>
-      <h3>|    <a href="/">Home</a>    |    <a href="/lawyers">View Lawyers</a>    |    <a href="/lawyers/new">Add a Lawyer</a>    |    <a href="https://www.lawhelpmn.org" target="_blank">LawHelpMN</a>    |    <% if logged_in? %>    <a href="/users/<%= current_user.slug %>">My Profile</a>    |    <a href="/logout">Logout</a><% else %><a href="/login">Login</a>    |    <a href="/signup">Sign Up</a><% end %>    |</h3>
-      <hr>
     </header>
-    <%= yield %>
+    <div class="wrapper" id="navbar">
+        <nav class="clearfix"><a href="/">Home</a><a href="/lawyers">View Lawyers</a><a href="/lawyers/new">Add a Lawyer</a><a href="https://www.lawhelpmn.org" target="_blank">LawHelpMN</a><% if logged_in? %><a href="/users/<%= current_user.slug %>">My Profile</a><a href="/logout">Logout</a><% else %><a href="/login">Login</a><a href="/signup">Sign Up</a><% end %></nav>
+    </div>
+    <div class="wrapper content">
+      <%= yield %>
+    </div>
   </body>
 </html>
