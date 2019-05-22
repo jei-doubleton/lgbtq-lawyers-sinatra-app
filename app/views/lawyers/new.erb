@@ -19,7 +19,7 @@
   <input type="radio" name="lawyer[cost]" value="private">Private attorney with no discounts<br></p>
   <p><label for="practice_areas">What practice areas does the lawyer serve?</label><br>
     <em>Check as many as apply and/or add a new practice area below</em>
-  <% sorted_practice_areas = PracticeArea.all.sort {|a, b| a.name <=> b.name} %>
+  <% sorted_practice_areas = PracticeArea.all.sort {|a, b| a.name.capitalize <=> b.name.capitalize} %>
   <% sorted_practice_areas.each do |area| %>
     <br><input type="checkbox" name="practice_areas[]" value="<%= area.id %>"> <%= area.name.capitalize %>
   <% end %>
