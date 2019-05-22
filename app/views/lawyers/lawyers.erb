@@ -7,9 +7,9 @@
 
 <h3>Filter by Practice Area:</h3>
 <form action="/lawyers/filter-by-practice-area" method="post">
-  <select name="practice_areas">
+  <select name="practice_area">
     <% PracticeArea.alpha.each do |area| %>
-      <option value="<%= area.name %>"><%= area.name.capitalize %></option>
+      <option value="<%= area.id %>"><%= area.name.capitalize %></option>
     <% end %>
   </select>
   <input type="submit" value="Filter">

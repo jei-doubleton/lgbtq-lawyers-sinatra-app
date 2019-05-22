@@ -52,8 +52,7 @@ class LawyersController < ApplicationController
   end
 
   post '/lawyers/filter-by-practice-area' do
-    binding.pry
-    @practice_area = params[:area]
+    @practice_area = params[:practice_area]
     erb :"lawyers/practice-area-filter"
   end
 

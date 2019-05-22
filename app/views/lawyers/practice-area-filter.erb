@@ -1,0 +1,17 @@
+<h2>Lawyers practicing:<br>
+<%= PracticeArea.find(@practice_area).name.upcase %></h2>
+<% Lawyer.all.each do |lawyer| %>
+  <% if lawyer.practice_areas.exists?(@practice_area) %>
+    <div class="lawyer-block">
+      <h2><%= lawyer.name %></h2>
+      <p><strong>LGBTQ-friendly?</strong> <%= lawyer.LGBTQ_friendly? %></p>
+      <p><strong>Phone Number:</strong> <%= lawyer.phone_number != nil ? lawyer.format_phone : "none provided"%></p>
+      <p><strong>Website:</strong> <% if lawyer.website != "" %><a href="<%= lawyer.website %>" target="_blank"><%= lawyer.website %></a><% else %>none provided<% end %></p>
+      <p><strong>Cost:</strong> <%= lawyer.cost != nil ? lawyer.cost : "not provided"%></p></a>
+      <p><strong>Practice Areas:</strong>
+        <ul><% lawyer.alpha_practice_areas.each do |area| %>
+          <li><%= area.name.capitalize %></li>
+        <% end %></ul>
+    </div>
+  <% end %>
+<% end %>
