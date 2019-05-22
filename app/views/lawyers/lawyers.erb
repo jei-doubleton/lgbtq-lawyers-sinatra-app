@@ -8,7 +8,7 @@
 <% sorted_lawyers = Lawyer.all.sort {|a, b| a.name <=> b.name} %>
 <% sorted_lawyers.each.with_index(1) do |lawyer, i| %>
   <div class="lawyer-block">
-    <h3><%= i %>. <%= lawyer.name %></h3>
+    <h3><%= i %>. <a href="/lawyers/<%= lawyer.slug %>"><%= lawyer.name %></a></h3>
     <p><strong>LGBTQ-friendly?</strong> <%= lawyer.LGBTQ_friendly? %></p>
     <p><strong>Phone Number:</strong> <%= lawyer.phone_number != nil ? lawyer.format_phone : "none provided"%></p>
     <p><strong>Website:</strong> <% if lawyer.website != "" %><a href="<%= lawyer.website %>" target="_blank"><%= lawyer.website %></a><% else %>none provided<% end %></p>
