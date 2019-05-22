@@ -5,6 +5,16 @@
   <h3 style="color:red;"><%= flash[:message] %></h3>
 <% end %>
 
+<h3>Filter by Practice Area:</h3>
+<form action="/lawyers/filter-by-practice-area" method="post">
+  <select name="practice_areas">
+    <% PracticeArea.alpha.each do |area| %>
+      <option value="area.name"><%= area.name.capitalize %></option>
+    <% end %>
+  </select>
+</form>
+
+<h3>Or Browse all lawyers:</h3>
 <% sorted_lawyers = Lawyer.all.sort {|a, b| a.name <=> b.name} %>
 <% sorted_lawyers.each.with_index(1) do |lawyer, i| %>
   <div class="lawyer-block">
