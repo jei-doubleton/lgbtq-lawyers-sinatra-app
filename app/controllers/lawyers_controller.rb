@@ -51,6 +51,12 @@ class LawyersController < ApplicationController
     end
   end
 
+  post '/lawyers/filter-by-practice-area' do
+    binding.pry
+    @practice_area = params[:area]
+    erb :"lawyers/practice-area-filter"
+  end
+
   get '/lawyers/:slug' do
     if logged_in?
       @lawyer = Lawyer.find {|lawyer| lawyer.slug == params[:slug]}

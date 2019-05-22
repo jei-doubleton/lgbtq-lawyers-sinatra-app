@@ -9,9 +9,10 @@
 <form action="/lawyers/filter-by-practice-area" method="post">
   <select name="practice_areas">
     <% PracticeArea.alpha.each do |area| %>
-      <option value="area.name"><%= area.name.capitalize %></option>
+      <option value="<%= area.name %>"><%= area.name.capitalize %></option>
     <% end %>
   </select>
+  <input type="submit" value="Filter">
 </form>
 
 <h3>Or Browse all lawyers:</h3>
