@@ -161,6 +161,10 @@ form .help-text {
   display: block;
 }
 
+#new-lawyer-button {
+  text-decoration: none;
+}
+
 .button:hover {
   background-color: #229627;
 }
