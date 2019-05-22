@@ -2,9 +2,10 @@
   <h3 style="color:red;"><%= flash[:message] %></h3>
 <% end %>
 <% if logged_in?%>
-  <p><a href="/lawyers">Search Lawyers</a></p>
-  <p><a href="/lawyers/new">Add a New Lawyer</a></p>
-  <p><a href="/users/<%= current_user.slug %>">See Lawyers You Added</a></p>
+  <h3><a href="/lawyers">Search Lawyers</a></h3>
+  <h3><a href="/lawyers/new">Add a New Lawyer</a></h3>
+  <h3><a href="/users/<%= current_user.slug %>">See Lawyers You've Added</a></h3>
 <% else %>
   <h3><a href="/signup">Signup to Search and Add Lawyers</a></h3>
 <% end %>
+  <img id="lawyer-icon" src="/images/lawyer-icons.jpg" alt="legal icons">
