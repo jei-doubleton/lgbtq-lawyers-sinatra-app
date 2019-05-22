@@ -1,3 +1,6 @@
+<% if flash.has?(:message) %>
+  <h3 style="color:red;"><%= flash[:message] %></h3>
+<% end %>
 <h2><%= @lawyer.name %></h2>
 <p><strong>LGBTQ-friendly?</strong> <%= @lawyer.LGBTQ_friendly? %></p>
 <p><strong>Phone Number:</strong> <%= @lawyer.phone_number != nil ? @lawyer.format_phone : "none provided"%></p>
@@ -14,6 +17,6 @@
 
 <div>
   <% if @lawyer.user == current_user %>
-    <a href="/lawyers/<%= @lawyer.slug %>/edit"><button type="button">Edit this lawyer</button></a>
+    <a href="/lawyers/<%= @lawyer.slug %>/edit"><button class="lawyer-button" type="button">Edit this lawyer</button></a>
   <% end %>
 </div>

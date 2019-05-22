@@ -30,8 +30,8 @@ class LawyersController < ApplicationController
 
       if params[:practice_area][:name] != ""
         if PracticeArea.all.find {|area| area.name.downcase == params[:practice_area][:name].downcase}
-          flash[:message] = "The practice area '#{params[:practice_area][:name]}' has already been added."
-          redirect "/lawyers/new"
+          flash[:message] = "Note: The new practice area you tried to add (#{params[:practice_area][:name]}) already existed. If you'd like to add that practice area to this lawyer, click Edit this lawyer below."
+          redirect "/lawyers/#{lawyer.slug}"
         else
           practice_area = PracticeArea.create(name: params[:practice_area][:name])
           lawyer.practice_areas << practice_area
