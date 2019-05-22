@@ -12,4 +12,8 @@ class Lawyer < ActiveRecord::Base
      phone = Phoner::Phone.parse(self.phone_number)
      phone.format("%a-%f-%l")
   end
+
+  def alpha_practice_areas
+    self.practice_areas.sort {|a, b| a.name.capitalize <=> b.name.capitalize}
+  end
 end

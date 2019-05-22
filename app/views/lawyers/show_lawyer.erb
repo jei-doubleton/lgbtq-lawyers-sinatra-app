@@ -8,8 +8,8 @@
 <p><strong>Cost:</strong> <%= @lawyer.cost != nil ? @lawyer.cost : "not provided"%></p></a>
 <p><strong>Practice Areas:</strong>
 <% if !@lawyer.practice_areas.empty? %>
-  <ul><% @lawyer.practice_areas.each do |area| %>
-    <li><%= area.name %></li>
+  <ul><% @lawyer.alpha_practice_areas.each do |area| %>
+    <li><%= area.name.capitalize %></li>
   <% end %></ul>
 <% else %>
   No practice areas added yet!</p>
