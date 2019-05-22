@@ -2,7 +2,7 @@
 <% if flash.has?(:message) %>
   <h3 style="color:red;"><%= flash[:message] %></h3>
 <% end %>
-<form action="/lawyers/<%= @lawyer.slug %>" method="post">
+<form class="not-button" action="/lawyers/<%= @lawyer.slug %>" method="post">
   <input type="hidden" name="_method" value="patch">
   <p><label for="name">Lawyer's Name:</label>
   <input type="text" name="lawyer[name]" id="name" value="<%= @lawyer.name %>" required></p>
@@ -26,5 +26,5 @@
   <% end %>
   <p><label for="new_practice_area">New practice area:</label>
   <input type="text" name="practice_area[name]" id="new_practice_area"></p>
-  <p><input type="submit" value="Update lawyer"></p>
+  <p><input class="button" type="submit" value="Update lawyer"></p>
 </form>
