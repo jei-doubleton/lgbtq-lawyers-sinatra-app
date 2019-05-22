@@ -15,6 +15,7 @@ gem 'bcrypt'
 gem 'tux'
 gem 'rack'
 gem 'rack-flash3', '~> 1.0', '>= 1.0.5'
+gem 'phone', '~> 1.2', '>= 1.2.3'
 
 # For tests:
 group :test do
