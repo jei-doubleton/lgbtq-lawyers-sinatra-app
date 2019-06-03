@@ -15,10 +15,10 @@ class UsersController < ApplicationController
     if params[:user][:email] == "" || params[:user][:username] == "" || params[:user][:password] == ""
       flash[:message] = "You must complete all fields."
       redirect "/signup"
-    elsif User.all.find_by(username: params[:user][:username])
+    elsif User.find_by(username: params[:user][:username])
       flash[:message] = "The username '#{params[:user][:username]}' is already taken."
       redirect "/signup"
-    elsif User.all.find_by(email: params[:user][:email])
+    elsif User.find_by(email: params[:user][:email])
       flash[:message] = "The email address '#{params[:user][:email]}' was already used to create an account. If you already have an account, login using the link above."
       redirect "/signup"
     else
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-    @user = User.all.find_by(username: params[:user][:username])
+    @user = User.find_by(username: params[:user][:username])
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
       redirect "/users/#{@user.slug}"
