@@ -1,13 +1,17 @@
 <% if flash.has?(:message) %>
   <h3 style="color:red;"><%= flash[:message] %></h3>
 <% end %>
+
 <h3>Sign up for an account:</h3>
 <form action="/signup" method="post">
   <p><label for="username">Username: </label>
-  <input type="text" name="user[username]" id="username"></p>
+    <input type="text" name="user[username]" id="username"></p>
+
   <p><label for="email">Email: </label>
-  <input type="text" name="user[email]" id="email"></p>
+    <input type="text" name="user[email]" id="email"></p>
+
   <p><label for="password">Password: </label>
-  <input type="password" name="user[password]" id="password"></p>
+    <input type="password" name="user[password]" id="password"></p>
+
   <input class="button" type="submit" value="Sign Up">
 </form>

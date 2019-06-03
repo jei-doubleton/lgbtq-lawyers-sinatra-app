@@ -1,18 +1,23 @@
 <h2>Welcome, <%= @user.username %>!</h2>
-<a id="new-lawyer-button" href="/lawyers/new"><button class="button">Add a New Lawyer</button></a>
+  <a id="new-lawyer-button" href="/lawyers/new">
+    <button class="button">Add a New Lawyer</button>
+  </a>
+
 <h3>Here are the lawyers you've already added:</h3>
-<% if !@user.lawyers.empty? %>
-  <% @user.lawyers.each do |lawyer| %>
-    <div class="lawyer-block">
-      <p><strong><a href="/lawyers/<%= lawyer.slug %>"><%= lawyer.name %></a></strong></p>
-      <a href="/lawyers/<%= lawyer.slug %>/edit"><button class="lawyer-button">Edit</button></a>
-      <form action="/lawyers/<%= lawyer.slug %>" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <input class="lawyer-button" type="submit" value="Delete">
-      </form>
-    </div>
+  <% if !@user.lawyers.empty? %>
+    <% @user.lawyers.each do |lawyer| %>
+      <div class="lawyer-block">
+        <p><strong><a href="/lawyers/<%= lawyer.slug %>"><%= lawyer.name %></a></strong></p>
+        <a href="/lawyers/<%= lawyer.slug %>/edit">
+          <button class="lawyer-button">Edit</button>
+        </a>
+
+        <form action="/lawyers/<%= lawyer.slug %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input class="lawyer-button" type="submit" value="Delete">
+        </form>
+      </div>
+    <% end %>
+  <% else %>
+    <br><strong>You haven't added any lawyers yet.</strong>
   <% end %>
-<% else %>
-  <br>
-  <strong>You haven't added any lawyers yet.</strong>
-<% end %>

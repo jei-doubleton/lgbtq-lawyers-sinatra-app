@@ -21,6 +21,10 @@ class Lawyer < ActiveRecord::Base
     self.phone_number != nil ? self.format_phone : "none provided"
   end
 
+  def cost_display
+    self.cost != nil ? self.cost : "not provided"
+  end
+
   def alpha_practice_areas
     self.practice_areas.sort {|a, b| a.name.capitalize <=> b.name.capitalize}
   end
