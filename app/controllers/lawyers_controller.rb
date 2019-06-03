@@ -14,7 +14,7 @@ class LawyersController < ApplicationController
   post '/lawyers' do
     lawyer = Lawyer.new(params[:lawyer])
 
-    if Lawyer.all.find {|name| name.slug == lawyer.slug}
+    if Lawyer.find {|name| name.slug == lawyer.slug}
       flash[:message] = "The lawyer '#{params[:lawyer][:name]}' has already been added."
       redirect "/lawyers/new"
     else
@@ -29,7 +29,7 @@ class LawyersController < ApplicationController
       end
 
       if params[:practice_area][:name] != ""
-        if PracticeArea.all.find {|area| area.name.downcase == params[:practice_area][:name].downcase}
+        if PracticeArea.find {|area| area.name.downcase == params[:practice_area][:name].downcase}
           flash[:message] = "Note: The new practice area you tried to add (#{params[:practice_area][:name]}) already existed. If you'd like to add that practice area to this lawyer, click Edit this lawyer below."
           redirect "/lawyers/#{lawyer.slug}"
         else
@@ -85,7 +85,7 @@ class LawyersController < ApplicationController
     end
 
     if params[:practice_area][:name] != ""
-      if PracticeArea.all.find {|area| area.name.downcase == params[:practice_area][:name].downcase}
+      if PracticeArea.find {|area| area.name.downcase == params[:practice_area][:name].downcase}
         flash[:message] = "The practice area '#{params[:practice_area][:name]}' has already been added."
         redirect "/lawyers/#{@lawyer.slug}/edit"
       else
