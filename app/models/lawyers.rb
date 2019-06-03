@@ -13,6 +13,14 @@ class Lawyer < ActiveRecord::Base
      phone.format("%a-%f-%l")
   end
 
+  def self.sorted_lawyers
+    self.all.sort {|a, b| a.name <=> b.name}
+  end
+
+  def phone_display
+    self.phone_number != nil ? self.format_phone : "none provided"
+  end
+
   def alpha_practice_areas
     self.practice_areas.sort {|a, b| a.name.capitalize <=> b.name.capitalize}
   end
